@@ -9,8 +9,6 @@ import AnalyticsTotalProfitLineCharts from '@/views/dashboards/analytics/Analyti
 import AnalyticsTransactions from '@/views/dashboards/analytics/AnalyticsTransactions.vue'
 import AnalyticsWeeklyOverview from '@/views/dashboards/analytics/AnalyticsWeeklyOverview.vue'
 import CardStatisticsVertical from '@core/components/CardStatisticsVertical.vue'
-import NewestPosts from '@/views/home/NewestPosts.vue'
-import MainPostPreview from '@/views/home/MainPostPreview.vue'
 import eCommerce2 from '@/assets/images/eCommerce/2.png'
 import LoadingComponent from '@/layouts/components/Loading.vue'
 
@@ -162,33 +160,6 @@ const posts = ref([
           sm="6"
         >
           <AnalyticsBarCharts />
-        </VCol>
-      </VRow>
-    </VCol>
-    <VCol
-      cols="12"
-      sm="6"
-    >
-    </VCol>
-    <VCol
-      cols="12"
-    >
-      <VRow class="match-height">
-        <VCol
-          v-for="(post, index) in posts"
-          :key="index"
-          cols="12"
-          sm="6"
-        >
-          <MainPostPreview
-            :photo="post.IMG"
-            :title="post.title"
-            :likes="post.likes"
-            :price="post.price"
-            :description="post.description"
-            :link="post.redirect"
-            :user="post.user"
-          />
         </VCol>
       </VRow>
     </VCol>

@@ -44,14 +44,14 @@ const upgradeBanner = computed(() => {
     <VerticalNavLink
       :item="{
         title: 'Lands',
-        to: 'account-settings',
+        to: 'lands',
         icon: { icon: 'mdi-layers-triple-outline' }
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Farm Managers',
-        to: 'user-profile',
+        to: 'farm-managers',
         icon: { icon: 'mdi-account-outline' }
       }"
     />
@@ -59,30 +59,28 @@ const upgradeBanner = computed(() => {
     <VerticalNavLink
       :item="{
         title: 'Farms',
-        to: 'login',
-        target: '_blank',
+        to: 'farms',
         icon: { icon: 'mdi-tractor' }
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Marketplace',
-        to: 'register',
-        target: '_blank',
+        to: 'marketplace',
         icon: { icon: 'mdi-storefront-outline' }
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Orders',
-        to: 'typography',
+        to: 'orders',
         icon: { icon: 'mdi-order-bool-ascending-variant' }
       }"
     />
     <VerticalNavLink
       :item="{
         title: 'Help Videos',
-        to: 'icons',
+        to: 'videos',
         icon: { icon: 'mdi-youtube' }
       }"
     />
