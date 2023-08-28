@@ -42,13 +42,13 @@
     class="mt-5 disable-tab-transition"
     :touch="false"
   >
-    <!-- Account -->
     <VWindowItem :value="0">
-      <Lands/>
+      <Lands />
     </VWindowItem>
 
-    <!-- Security -->
-    <VWindowItem :value="1" />
+    <VWindowItem :value="1">
+      <FarmManagers/>
+    </VWindowItem>
 
     <VWindowItem :value="2" />
   </VWindow>
