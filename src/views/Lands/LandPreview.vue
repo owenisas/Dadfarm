@@ -5,6 +5,8 @@
     <VImg
       :src="img"
       height="200"
+      width="350"
+      cover
     />
     <VCardSubtitle class="pt-4 font-weight-bold">
       {{ location }}

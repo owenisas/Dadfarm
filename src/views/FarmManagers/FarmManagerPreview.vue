@@ -4,13 +4,14 @@
   >
     <VImg
       :src="img"
-      max-width="300px"
-      max-height="200px"
-      aspect-ratio="contain"
+      height="250"
+      width="350"
+      cover
+
     />
-    <VCardSubtitle class="pt-4 font-weight-bold">
+    <VCardTitle class="pt-4 font-weight-bold">
       {{ name }}
-    </VCardSubtitle>
+    </VCardTitle>
     <VCardSubtitle class="pt-4 font-weight-bold">
       {{ worktype }}
     </VCardSubtitle>
