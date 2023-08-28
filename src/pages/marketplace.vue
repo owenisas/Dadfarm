@@ -10,9 +10,11 @@
       class="d-flex justify-end"
     >
       <VBtn
+        variant="outlined"
         style="width: 150px;"
+        prepend-icon="mdi-file-document-check-outline"
       >
-        + Add Land
+        All Requests
       </VBtn>
     </VCol>
   </VRow>
@@ -47,10 +49,14 @@
     </VWindowItem>
 
     <VWindowItem :value="1">
-      <FarmManagers/>
+      <FarmManagers />
     </VWindowItem>
 
-    <VWindowItem :value="2" />
+    <VWindowItem :value="2">
+      <FarmServices />
+    </VWindowItem>
+    <VWindowItem :value="3" />
+    <VWindowItem :value="4" />
   </VWindow>
 </template>
 

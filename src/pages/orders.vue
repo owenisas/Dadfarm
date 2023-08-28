@@ -1,10 +1,10 @@
 <template>
   <VRow>
     <VCol>
-      <VCard>
-        <VCardTitle>Orders({{ orders.length }})</VCardTitle>
-      </VCard>
-      <VCard
+      <VCardTitle>Orders({{ orders.length }})</VCardTitle>
+      <VToolbar
+        color="#FFFFFF"
+        :elevation="8"
         class="d-flex justify-start"
       >
         <VMenu>
@@ -50,7 +50,7 @@
             </VListItem>
           </VList>
         </VMenu>
-      </VCard>
+      </VToolbar>
     </VCol>
   </VRow>
   <VRow class="match-height">
