@@ -26,7 +26,7 @@
         <VBtn
           color="primary"
           to="/login"
-          @click='close'
+          @click="close"
         >
           Login
         </VBtn>

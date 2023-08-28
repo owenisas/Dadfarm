@@ -1,79 +1,133 @@
 <template>
-  <VContainer>
-    <VRow justify="space-around">
-      <VCard width="400">
-        <VImg
-          height="200"
-          src="https://cdn.pixabay.com/photo/2020/07/12/07/47/bee-5396362_1280.jpg"
-          cover
-          class="text-white"
-        >
-          <VToolbar
-            color="rgba(0, 0, 0, 0)"
-            theme="dark"
-          >
-            <template #prepend>
-              <VBtn icon="$menu" />
-            </template>
+  <VDialog
+    v-model="dialog"
+  >
+    <VCard
+      height="500"
+    >
+      <VCardTitle class="d-flex justify-center align-center font-weight-bold">
+        Add Personal Land
+      </VCardTitle>
+      <VBtn
+        color="primary"
+        block
+        height="50"
+        width="50"
+        @click="dialog = false"
+      >
+        Continue
+      </VBtn>
+    </VCard>
+  </VDialog>
+  <VProgressLinear
+    v-model="value"
+    max="120"
+  />
+  <VCard
+    class="mx-auto"
+  >
+    <VCardTitle class="text-h6 font-weight-regular justify-space-between">
+      <span>{{ currentTitle }}</span>
+      <VAvatar
+        color="primary"
+        size="24"
+        v-text="step"
+      />
+    </VCardTitle>
 
-            <VToolbarTitle class="text-h6">
-              Messages
-            </VToolbarTitle>
-
-            <template #append>
-              <VBtn icon="mdi-dots-vertical" />
-            </template>
-          </VToolbar>
-        </VImg>
-
+    <VWindow v-model="step">
+      <VWindowItem :value="1">
         <VCardText>
-          <div class="font-weight-bold ms-1 mb-2">
-            Today
-          </div>
-
-          <VTimeline
-            density="compact"
-            align="start"
-          >
-            <VTimelineItem
-              v-for="message in messages"
-              :key="message.time"
-              :dot-color="message.color"
-              size="x-small"
-            >
-              <div class="mb-4">
-                <div class="font-weight-normal">
-                  <strong>{{ message.from }}</strong> @{{ message.time }}
-                </div>
-                <div>{{ message.message }}</div>
-              </div>
-            </VTimelineItem>
-          </VTimeline>
+          <VTextField
+            label="Email"
+            placeholder="john@google.com"
+          />
+          <span class="text-caption text-grey-darken-1">
+            This is the email you will use to login to your Vuetify account
+          </span>
         </VCardText>
-      </VCard>
-    </VRow>
-  </VContainer>
+      </VWindowItem>
+
+      <VWindowItem :value="2">
+        <VCardText>
+          <VTextField
+            label="Password"
+            type="password"
+          />
+          <VTextField
+            label="Confirm Password"
+            type="password"
+          />
+          <span class="text-caption text-grey-darken-1">
+            Please enter a password for your account
+          </span>
+        </VCardText>
+      </VWindowItem>
+
+      <VWindowItem :value="3">
+        <div class="pa-4 text-center">
+          <VImg
+            class="mb-4"
+            contain
+            height="128"
+            src="https://cdn.vuetifyjs.com/images/logos/v.svg"
+          />
+          <h3 class="text-h6 font-weight-light mb-2">
+            Welcome to Vuetify
+          </h3>
+          <span class="text-caption text-grey">Thanks for signing up!</span>
+        </div>
+      </VWindowItem>
+    </VWindow>
+
+    <VDivider />
+
+    <VCardActions>
+      <VBtn
+        v-if="step > 1"
+        variant="text"
+        @click="decreasestep"
+      >
+        Back
+      </VBtn>
+      <VSpacer />
+      <VBtn
+        v-if="step < 3"
+        color="primary"
+        variant="flat"
+        @click="increasestep"
+      >
+        Next
+      </VBtn>
+    </VCardActions>
+  </VCard>
 </template>
 
 <script setup>
-const messages = [
-  {
-    from: 'You',
-    message: `Sure, I'll see you later.`,
-    time: '10:42am',
-    color: 'deep-purple-lighten-1',
-  },
-  {
-    from: 'John Doe',
-    message: 'Yeah, sure. Does 1:00pm work?',
-    time: '10:37am',
-    color: 'green',
-  },
-  {
-    from: 'You',
-    message: 'Did you still want to grab lunch today?',
-    time: '9:47am',
-    color: 'deep-purple-lighten-1',
-  },
-]
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+
+const step = ref(1)
+const value = ref(40)
+const dialog = ref(true)
+const increasestep = () => {
+  step.value++
+  value.value += 40
+}
+const decreasestep = () => {
+  step.value--
+  value.value -= 40
+}
+const currentTitle = computed(() => {
+  switch (step.value) {
+  case 1: return 'Sign-up'
+  case 2: return 'Create a password'
+  default: return 'Account created'
+  }
+})
 </script>
+
+
+<route lang="yaml">
+meta:
+  layout: blank
+</route>

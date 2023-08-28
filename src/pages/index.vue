@@ -1,167 +1,165 @@
 <script setup>
-import AnalyticsAward from '@/views/dashboards/analytics/AnalyticsAward.vue'
-import AnalyticsBarCharts from '@/views/dashboards/analytics/AnalyticsBarCharts.vue'
-import AnalyticsDatatable from '@/views/dashboards/analytics/AnalyticsDatatable.vue'
-import AnalyticsDepositWithdraw from '@/views/dashboards/analytics/AnalyticsDepositWithdraw.vue'
-import AnalyticsSalesByCountries from '@/views/dashboards/analytics/AnalyticsSalesByCountries.vue'
-import AnalyticsTotalEarning from '@/views/dashboards/analytics/AnalyticsTotalEarning.vue'
-import AnalyticsTotalProfitLineCharts from '@/views/dashboards/analytics/AnalyticsTotalProfitLineCharts.vue'
-import AnalyticsTransactions from '@/views/dashboards/analytics/AnalyticsTransactions.vue'
-import AnalyticsWeeklyOverview from '@/views/dashboards/analytics/AnalyticsWeeklyOverview.vue'
-import CardStatisticsVertical from '@core/components/CardStatisticsVertical.vue'
-import eCommerce2 from '@/assets/images/eCommerce/2.png'
-import LoadingComponent from '@/layouts/components/Loading.vue'
-
-const loading = ref(true)
-const totalProfit = {
-  title: 'Total Profit',
-  color: 'secondary',
-  icon: 'mdi-poll',
-  stats: '$25.6k',
-  change: 42,
-  subtitle: 'Weekly Project',
+const currentTab = ref(null)
+const dialog = ref(false)
+const addland = ref(false)
+const Addland = () => {
+  addland.value = true
+  console.log(addland)
 }
-const newProject = {
-  title: 'New Project',
-  color: 'primary',
-  icon: 'mdi-briefcase-variant-outline',
-  stats: '862',
-  change: -18,
-  subtitle: 'Yearly Project',
-}
-const posts = ref([
+const tabs = [
   {
-    IMG : eCommerce2,
-    title: 'Iphone 11',
-    likes: '92229',
-    price: '13333',
-    description:'Nothidwaa adad w d a dad  ddddddddddddddddddddddd sada a wng Special',
-    redirect:'/user/owenisas',
-    user: 'owenisas',
+    title: 'Farm',
+    icon: 'mdi-layers-triple-outline',
   },
-])
+  {
+    title: 'Land',
+    icon: 'mdi-layers-triple-outline',
+
+  },
+  {
+    title: 'Farm Manager',
+    icon: 'mdi-layers-triple-outline',
+  },
+]
 </script>
 
 <template>
-  <LoadingComponent 
-    v-if="loading"
-  />
-  <VRow class="match-height">
-    <!-- v-else -->
+  <div class="text-center">
+    <VBtn
+      color="primary"
+      @click="dialog = true"
+    >
+      Open Dialog
+    </VBtn>
 
+    <VDialog
+      v-model="dialog"
+      width="auto"
+    >
+      <VCard>
+        <div class="d-flex justify-center align-center font-weight-bold">
+          <VCardTitle>
+            Add New Land
+          </VCardTitle>
+          <div>
+            test
+          </div>
+        </div>
+        <VCardActions>
+          <VBtn
+            color="primary"
+            block
+            @click="dialog = false"
+          >
+            Close Dialog
+          </VBtn>
+        </VCardActions>
+      </VCard>
+    </VDialog>
+  </div>  
+  <VRow>
     <VCol
       cols="12"
-      md="4"
     >
-      <AnalyticsAward />
-    </VCol>
+      <VTimeline
+        direction="horizontal"
+        line-color="primary"
+        truncate-line="both"
+      >
+        <VTimelineItem>
+          <template #icon>
+            <span>JL</span>
+          </template>
+          <template #opposite>
+            <div class="text-h6">
+              Add your first land
+            </div>
+            <VBtn
+              variant="text"
+              @click="Addland"
+            >
+              + Add
+            </VBtn>
+          </template>
+        </VTimelineItem>
 
-    <VCol
-      cols="12"
-      md="8"
-    >
-      <AnalyticsTransactions />
-    </VCol>
+        <VTimelineItem>
+          <div class="text-h6">
+            Add your first farm manager
+          </div>
+          <VBtn variant="text">
+            + Add
+          </VBtn>
+        </VTimelineItem>
 
-    <VCol
-      cols="12"
-      md="4"
-    >
-      <AnalyticsWeeklyOverview />
-    </VCol>
-
-    <VCol
-      cols="12"
-      md="4"
-    >
-      <AnalyticsTotalEarning />
-    </VCol>
-
-    <VCol
-      cols="12"
-      md="4"
-    >
-      <VRow class="match-height">
-        <VCol
-          cols="12"
-          sm="6"
+        <VTimelineItem>
+          <template #opposite>
+            <div class="text-h6">
+              Add your first farm
+            </div>
+            <VBtn variant="text">
+              + Add
+            </VBtn>
+          </template>
+        </VTimelineItem>
+      </VTimeline>
+      <VTabs
+        v-model="currentTab"
+        show-arrows
+      >
+        <VTab
+          v-for="item in tabs"
+          :key="item.icon"
+          :value="item.tab"
         >
-          <AnalyticsTotalProfitLineCharts />
-        </VCol>
+          <VIcon
+            size="20"
+            start
+            :icon="item.icon"
+          />
+          <div class="d-none d-sm-block">
+            {{ item.title }}
+          </div>
+        </VTab>
+      </VTabs>
+      <VDivider />
 
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <CardStatisticsVertical v-bind="totalProfit" />
-        </VCol>
+      <VWindow
+        v-model="currentTab"
+        class="mt-5 disable-tab-transition"
+        :touch="false"
+      >
+        <!-- Account -->
+        <VWindowItem :value="0">
+          <VCard>
+            <VCardTitle>
+              Hi
+            </VCardTitle>
+            <VBtn>
+              test
+            </VBtn>
+          </VCard>
+        </VWindowItem>
 
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <CardStatisticsVertical v-bind="newProject" />
-        </VCol>
+        <!-- Security -->
+        <VWindowItem :value="1" />
 
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <AnalyticsBarCharts />
-        </VCol>
-      </VRow>
-    </VCol>
-
-    <VCol
-      cols="12"
-      md="4"
-    >
-      <AnalyticsSalesByCountries />
-    </VCol>
-
-    <VCol
-      cols="12"
-      md="8"
-    >
-      <AnalyticsDepositWithdraw />
-    </VCol>
-
-    <VCol cols="12">
-      <AnalyticsDatatable />
-    </VCol>
-    <VCol
-      cols="12"
-      md="4"
-    >
-      <VRow class="match-height">
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <AnalyticsTotalProfitLineCharts />
-        </VCol>
-
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <CardStatisticsVertical v-bind="totalProfit" />
-        </VCol>
-
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <CardStatisticsVertical v-bind="newProject" />
-        </VCol>
-
-        <VCol
-          cols="12"
-          sm="6"
-        >
-          <AnalyticsBarCharts />
-        </VCol>
-      </VRow>
+        <VWindowItem :value="2" />
+      </VWindow>
     </VCol>
   </VRow>
 </template>
+
+<style>
+.v-timeline .v-timeline-item .v-timeline-divider__dot .v-timeline-divider__inner-dot{
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px dashed green;
+}
+.v-timeline-divider__before,
+.v-timeline-divider__after {
+  border-style: dashed;
+}
+</style>

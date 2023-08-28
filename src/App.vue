@@ -1,5 +1,4 @@
 <script setup>
-import BuyNow from '@core/components/PostNow.vue'
 import axiosInstance from '@/axiosInstance'
 import { onMounted, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
@@ -25,7 +24,6 @@ function isBrowser() {
 }
 const route = useRoute()
 const bow = isBrowser()
-const showBuyNow = ref(true)
 const domain = window.location.hostname
 const isExpired = computed(() => store.state.expired)
 onMounted(
@@ -61,9 +59,6 @@ watchEffect(() => {
     <VLayout class="layout-wrapper layout-nav-type-vertical">
       <SessionExpired
         v-if="isExpired"
-      />
-      <BuyNow
-        v-if="showBuyNow"
       />
       <RouterView />
     </VLayout>
