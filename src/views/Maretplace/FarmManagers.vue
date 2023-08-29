@@ -13,6 +13,17 @@
         :img="manager.img"
       />
     </VCol>
+    <VCol
+      cols="12"
+      class="d-flex justify-center align-center font-weight-bold pt-3"
+    >
+      <VBtn
+
+        variant="outlined"
+      >
+        View More
+      </VBtn>
+    </VCol>
   </VRow>
 </template>
 

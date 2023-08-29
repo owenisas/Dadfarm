@@ -8,16 +8,19 @@
       width="390"
       cover
       alt="Video"
+      :src="img"
     />
     <VBtn
       variant="text"
       class="text-link-button font-weight-bold text-capitalize"
     >
-      Test
+      {{ title }}
       <VTooltip
         activator="parent"
         location="bottom"
-      >Tooltip</VTooltip>
+      >
+        {{ title }}
+      </VTooltip>
     </VBtn>
   </VSheet>
 </template>
