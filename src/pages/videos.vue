@@ -45,59 +45,59 @@ import fifteen from'@/assets/images/video/15.avif'
 import VideoPreview from '@/views/video/VideoPreview.vue'
 
 const videos = [{
-  title:"none",
+  title:"Sweet Potato Protocol: Dehaulming Sweet Potatoes",
   img:one,
 },
 {
-  title: "none",
+  title: "Sweet Potato Protocol: Planting Sweet Potatoes",
   img: two,
 },
 {
-  title:"none",
+  title:"Onboarding as a Farm Manager",
   img:three,
 },
 {
-  title:"none",
+  title:"How to Add Yourself as a Farm Manager",
   img:four,
 },
 {
-  title:"none",
+  title:"Chili Pepper Protocol: Scouting your Chili Pepper Farm",
   img:five,
 },
 {
-  title:"none",
+  title:"Chili Pepper Protocol: Planting Chili Pepper",
   img:six,
 },
 {
-  title:"none",
+  title:"Chili Pepper Protocol: Transplanting Chili Pepper",
   img:seven,
 },
 {
-  title:"none",
+  title:"Chili Pepper Protocol: Harvesting Chili Pepper",
   img:eight,
 },
 {
-  title:"none",
+  title:"How to Prepare your Land for Farming",
   img:nine,
 },
 {
-  title:"none",
+  title:"Chili Pepper Protocol: Fertilizer Application",
   img:ten,
 },
 {
-  title:"none",
+  title:"Getting Started",
   img:eleven,
 },
 {
-  title:"none",
+  title:"Add Your Own Land",
   img:twelve,
 },
 {
-  title:"none",
+  title:"Hire a Farm Manager",
   img:thirteen,
 },
 {
-  title:"none",
+  title:"How To Lease Land",
   img:fourteen,
 },
 {

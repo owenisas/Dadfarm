@@ -1,6 +1,6 @@
 <template>
   <VSheet
-    height="250"
+    height="300"
     width="390"
   >
     <VImg
