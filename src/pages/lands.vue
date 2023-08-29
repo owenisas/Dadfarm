@@ -1,57 +1,65 @@
 <template>
-  <div>
-    <VBtn />
-  </div>
-  <div>
-    <VTabs
-      v-model="activeTab"
-      show-arrows
+  <VRow>
+    <VCol 
+      cols="6"
     >
-      <VTab
-        v-for="item in tabs"
-        :key="item.tab"
-        :value="item.tab"
+      <VCardTitle>All Lands (0)</VCardTitle>
+    </VCol>
+    <VCol
+      cols="6"
+      class="d-flex justify-end"
+    >
+      <VBtn
+        style="width: 150px;"
       >
-        <div class="d-none d-sm-block">
-          {{ item.title }}
-        </div>
-      </VTab>
-    </VTabs>
-    <VDivider />
-
-    <VWindow
-      v-model="activeTab"
-      class="mt-5 disable-tab-transition"
-      :touch="false"
+        + Add Land
+      </VBtn>
+    </VCol>
+  </VRow>
+  <VTabs
+    v-model="currentTab"
+    show-arrows
+  >
+    <VTab
+      v-for="(item, index) in tabs"
+      :key="index"
+      :value="index"
     >
-      <!-- Account -->
-      <VWindowItem value="account" />
+      <div class="d-none d-sm-block">
+        {{ item.title }}
+      </div>
+    </VTab>
+  </VTabs>
+  <VDivider />
 
-      <!-- Security -->
-      <VWindowItem value="security" />
-    </VWindow>
-  </div>
+  <VWindow
+    v-model="currentTab"
+    class="mt-5 disable-tab-transition"
+    :touch="false"
+  >
+    <VWindowItem :value="0">
+      <VCol>
+        <div class="d-flex justify-center align-center font-weight-bold">
+          You do not have lands. Add your first Land
+        </div>
+      </VCol>
+    </VWindowItem>
+
+    <VWindowItem :value="1">
+      <p>test2</p>
+    </VWindowItem>
+
+    <VWindowItem :value="2">
+      <p>test3</p>
+    </VWindowItem>
+  </VWindow>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-const activeTab = ref(route.params.tab)
-
-// tabs
 const tabs = [
-  {
-    title: 'All',
-    tab: 'all',
-  },
-  {
-    title: 'Approved',
-    tab: 'approved',
-  },
-  {
-    title: 'Unapproved',
-    tab: 'unapproved',
-  },
+  { title: 'All' },
+  { title: 'Approved' },
+  { title: 'Unapproved' },
 ]
+const currentTab = ref(null)
 </script>
