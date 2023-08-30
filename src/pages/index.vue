@@ -65,13 +65,17 @@ const tabs = [
         direction="horizontal"
         line-color="primary"
         truncate-line="both"
+        :style="{ backgroundColor: '#285608' }"
       >
         <VTimelineItem>
           <template #icon>
-            <span>JL</span>
+            <span class="font-weight-bold">Step 1</span>
           </template>
           <template #opposite>
-            <div class="text-h6">
+            <div
+              class="text-h6"
+              style="color: white"
+            >
               Add your first land
             </div>
             <VBtn
@@ -84,7 +88,13 @@ const tabs = [
         </VTimelineItem>
 
         <VTimelineItem>
-          <div class="text-h6">
+          <template #icon>
+            <span class="font-weight-bold">Step 2</span>
+          </template>
+          <div
+            class="text-h6"
+            style="color: white"
+          >
             Add your first farm manager
           </div>
           <VBtn variant="text">
@@ -93,8 +103,14 @@ const tabs = [
         </VTimelineItem>
 
         <VTimelineItem>
+          <template #icon>
+            <span class="font-weight-bold">Step 3</span>
+          </template>
           <template #opposite>
-            <div class="text-h6">
+            <div
+              class="text-h6"
+              style="color: white"
+            >
               Add your first farm
             </div>
             <VBtn variant="text">
@@ -152,11 +168,15 @@ const tabs = [
 
 <style>
 .v-timeline .v-timeline-item .v-timeline-divider__dot .v-timeline-divider__inner-dot{
-  width: 60px;
+  width: 80px;
   height: 30px;
   border-radius: 15px;
   background-color: white;
   border: 2px dashed green;
+}
+.v-timeline .v-timeline-item .v-timeline-divider__dot{
+  width: 80px;
+  height: 30px;
 }
 .v-timeline-divider__before,
 .v-timeline-divider__after {
