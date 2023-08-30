@@ -1,4 +1,6 @@
 <script setup>
+import AddLandComponent from '@/views/Lands/AddLandComponent.vue'
+
 const currentTab = ref(null)
 const dialog = ref(false)
 const addland = ref(false)
@@ -6,6 +8,11 @@ const Addland = () => {
   addland.value = true
   console.log(addland)
 }
+const onclose = () =>{
+  dialog1.value = false
+  console.log(dialog1)
+}
+const dialog1 = ref(false)
 const tabs = [
   {
     title: 'Farm',
@@ -31,7 +38,10 @@ const tabs = [
     >
       Open Dialog
     </VBtn>
-
+    <AddLandComponent
+      :show="dialog1"
+      @closedialog="onclose"
+    />
     <VDialog
       v-model="dialog"
       width="auto"
@@ -116,6 +126,7 @@ const tabs = [
             <VBtn variant="text">
               + Add
             </VBtn>
+            <Addland />
           </template>
         </VTimelineItem>
       </VTimeline>
@@ -148,19 +159,49 @@ const tabs = [
         <!-- Account -->
         <VWindowItem :value="0">
           <VCard>
-            <VCardTitle>
-              Hi
-            </VCardTitle>
-            <VBtn>
-              test
-            </VBtn>
+            <VCol>
+              <div class="d-flex justify-center align-center font-weight-bold">
+                You do not have farms. Add your first farm
+              </div>
+              <div class="pt-3 d-flex justify-center align-center font-weight-bold">
+                <VBtn
+                  @click=" dialog1 = true"
+                >
+                  + Add Farm
+                </VBtn>
+              </div>
+            </VCol>
           </VCard>
         </VWindowItem>
 
         <!-- Security -->
-        <VWindowItem :value="1" />
+        <VWindowItem :value="1">
+          <VCard>
+            <VCol>
+              <div class="d-flex justify-center align-center font-weight-bold">
+                You do not have lands. Add your first land
+              </div>
+              <div class="pt-3 d-flex justify-center align-center font-weight-bold">
+                <VBtn>+ Add land</VBtn>
+              </div>
+            </VCol>
+          </VCard>
+        </VWindowItem>
 
-        <VWindowItem :value="2" />
+        <VWindowItem :value="2">
+          <VCard>
+            <VCol>
+              <div class="d-flex justify-center align-center font-weight-bold">
+                You do not have farm managers. Add your first farm manager
+              </div>
+              <div class="pt-3 d-flex justify-center align-center font-weight-bold">
+                <VBtn to="/marketeplace">
+                  + Add Farm Manager
+                </VBtn>
+              </div>
+            </VCol>
+          </VCard>
+        </VWindowItem>
       </VWindow>
     </VCol>
   </VRow>
