@@ -210,13 +210,26 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { ref, watch, defineProps, defineEmits } from 'vue'
 
+const props = defineProps(  {
+  show:{
+    type:Boolean,
+    required:true,
+  },
+})
 const step = ref(1)
 const value = ref(40)
 const dialog2 = ref(true)
-const dialog = ref(true)
+const dialog = ref(false)
+const localShow = ref(props.show)
 
+watch(
+  () => props.show,
+  newVal => {
+    dialog.value = newVal
+  },
+)
 const increasestep = () => {
   step.value++
   value.value += 40

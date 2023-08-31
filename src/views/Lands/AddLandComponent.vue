@@ -13,24 +13,41 @@
       <VCardText>
         Select "Add your Own Land" if you already have a land or select "Lease a Land" from the Complete Farmer marketplace if you don't own a land.
       </VCardText>
-      <VRadioGroup>
-        <VRadio
-          class="reverse-radio"
-          label="Add your Own Land"
-          value="local"
+      <div>
+        <Local
+          :show="dialog"
         />
-        <VRadio
-          class="reverse-radio"
-          label="Lease a Land"
-          value="marketplace"
+        <CustomRadio
+          :model-value="selected === 'local'"
+          label="Choose this option to add your own land for cultivation"
+          icon="mdi-heart"
+          title="Add your Own Land"
+          @update:modelValue="updateSelection('local')"
         />
-      </VRadioGroup>
+        <VDivider />
+        <CustomRadio
+          :model-value="selected === 'marketplace'"
+          label="Choose this option to lease land from out marketplace"
+          icon="mdi-heart"
+          title="Lease Land from Marketplace"
+          @update:modelValue="updateSelection('marketplace')"
+        />
+        <VBtn
+          :disabled="disabled"
+          @click="next"
+        >
+          Continue
+        </VBtn>
+      </div>
     </VCard>
   </VDialog>
 </template>
 
 <script setup>
 import { ref, watch, defineProps, defineEmits } from 'vue'
+import CustomRadio from './CustomRadio.vue'
+import { useRouter } from 'vue-router'
+import Local from '@/views/Lands/AddLocalLand.vue'
 
 const props = defineProps(  {
   show:{
@@ -38,8 +55,22 @@ const props = defineProps(  {
     required:true,
   },
 })
-
 const emit = defineEmits(['closedialog'])
+const dialog = ref(false)
+const router = useRouter()
+const disabled = ref(true)
+const selected = ref(null)
+const next = () =>{
+  if ( selected.value === "marketplace"){
+    router.push({ path: '/marketplace' })
+  } else {
+    dialog.value = true
+  }
+}
+const updateSelection = option => {
+  selected.value = option
+  disabled.value = false
+}
 const close = () => {
   localShow.value = false
   emit('closedialog')
@@ -55,11 +86,7 @@ watch(
 </script>
 
 <style>
-.reverse-radio .v-input--selection-controls__input,
-.reverse-radio .v-input--selection-controls__ripple {
-  order: 2;
-}
-.reverse-radio .v-label {
-  order: 1;
+.v-overlay__content {
+  width: 500px !important;
 }
 </style>

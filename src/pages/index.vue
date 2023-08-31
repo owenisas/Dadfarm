@@ -6,7 +6,6 @@ const dialog = ref(false)
 const addland = ref(false)
 const Addland = () => {
   addland.value = true
-  console.log(addland)
 }
 const onclose = () =>{
   dialog1.value = false
@@ -66,7 +65,7 @@ const tabs = [
         </VCardActions>
       </VCard>
     </VDialog>
-  </div>  
+  </div>
   <VRow>
     <VCol
       cols="12"

@@ -3,8 +3,7 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create(
-  {baseURL: 'https://script.owenisas.com',//'http://127.0.0.1:5000',//'https://script.owenisas.com',
-  },
+
 )
 
 const token = localStorage.getItem('token')
