@@ -7,11 +7,16 @@
       class="custom-radio-wrapper"
       :class="{ 'is-selected': isSelected }"
     >
-      <VIcon
+      <div
         v-if="icon"
-        :icon="icon"
-        class="custom-radio-icon"
-      />
+        class="mr-3 d-flex align-center justify-center"
+        :style="style"
+      >
+        <VIcon
+          :icon="icon"
+          color="primary"
+        />
+      </div>
       <VSheet>
         <VCardTitle>{{ title }}</VCardTitle>
         <span class="custom-radio-label">{{ label }}</span>
@@ -28,6 +33,7 @@ import { ref, watch, defineEmits } from 'vue'
 
 const props = defineProps({
   modelValue: Boolean,
+  bgcolor: String,
   label: String,
   icon: String,
   title: String,
@@ -35,6 +41,11 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
+const style = ref({
+  backgroundColor: props.bgcolor,
+  width: "100px",
+  height: "100px",
+})
 const isSelected = ref(props.modelValue)
 
 watch(
@@ -71,15 +82,15 @@ const toggleRadio = () => {
   content: "";
   position: absolute;
   top: -20px;
-  left: 0;
-  right: 0;
+  left: -10px;
+  right: -10px;
   bottom: -20px;
-  border: 2px solid transparent;
+  border: 2px solid rgba(128, 128, 128, 0.5);
   border-radius: 15px;
 }
 
 .custom-radio-wrapper.is-selected::before {
-  border-color: blue;
+  border-color: #294914;
 }
 
 .custom-radio-icon {

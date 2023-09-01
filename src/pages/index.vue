@@ -2,16 +2,13 @@
 import AddLandComponent from '@/views/Lands/AddLandComponent.vue'
 
 const currentTab = ref(null)
-const dialog = ref(false)
 const addland = ref(false)
 const Addland = () => {
   addland.value = true
 }
 const onclose = () =>{
-  dialog1.value = false
-  console.log(dialog1)
+  addland.value = false
 }
-const dialog1 = ref(false)
 const tabs = [
   {
     title: 'Farm',
@@ -31,40 +28,10 @@ const tabs = [
 
 <template>
   <div class="text-center">
-    <VBtn
-      color="primary"
-      @click="dialog = true"
-    >
-      Open Dialog
-    </VBtn>
     <AddLandComponent
-      :show="dialog1"
+      :show="addland"
       @closedialog="onclose"
     />
-    <VDialog
-      v-model="dialog"
-      width="auto"
-    >
-      <VCard>
-        <div class="d-flex justify-center align-center font-weight-bold">
-          <VCardTitle>
-            Add New Land
-          </VCardTitle>
-          <div>
-            test
-          </div>
-        </div>
-        <VCardActions>
-          <VBtn
-            color="primary"
-            block
-            @click="dialog = false"
-          >
-            Close Dialog
-          </VBtn>
-        </VCardActions>
-      </VCard>
-    </VDialog>
   </div>
   <VRow>
     <VCol
@@ -87,12 +54,15 @@ const tabs = [
             >
               Add your first land
             </div>
-            <VBtn
-              variant="text"
-              @click="Addland"
-            >
-              + Add
-            </VBtn>
+            <div class="d-flex justify-center align-center">
+              <VBtn
+                variant="text"
+                color="white"
+                @click="Addland"
+              >
+                + Add
+              </VBtn>
+            </div>
           </template>
         </VTimelineItem>
 
@@ -106,9 +76,15 @@ const tabs = [
           >
             Add your first farm manager
           </div>
-          <VBtn variant="text">
-            + Add
-          </VBtn>
+          <div class="d-flex justify-center align-center">
+            <VBtn
+              variant="text"
+              color="white"
+              to="/marketplace"
+            >              
+              + Add
+            </VBtn>
+          </div>
         </VTimelineItem>
 
         <VTimelineItem>
@@ -122,10 +98,15 @@ const tabs = [
             >
               Add your first farm
             </div>
-            <VBtn variant="text">
-              + Add
-            </VBtn>
-            <Addland />
+            <div class="d-flex justify-center align-center">
+              <VBtn
+                variant="text"
+                color="white"
+                @click="Addland"
+              >
+                + Add
+              </VBtn>
+            </div>
           </template>
         </VTimelineItem>
       </VTimeline>
@@ -164,7 +145,7 @@ const tabs = [
               </div>
               <div class="pt-3 d-flex justify-center align-center font-weight-bold">
                 <VBtn
-                  @click=" dialog1 = true"
+                  @click="Addland"
                 >
                   + Add Farm
                 </VBtn>
@@ -181,7 +162,11 @@ const tabs = [
                 You do not have lands. Add your first land
               </div>
               <div class="pt-3 d-flex justify-center align-center font-weight-bold">
-                <VBtn>+ Add land</VBtn>
+                <VBtn
+                  @click="Addland"
+                >
+                  + Add land
+                </VBtn>
               </div>
             </VCol>
           </VCard>
@@ -194,7 +179,7 @@ const tabs = [
                 You do not have farm managers. Add your first farm manager
               </div>
               <div class="pt-3 d-flex justify-center align-center font-weight-bold">
-                <VBtn to="/marketeplace">
+                <VBtn to="/marketplace">
                   + Add Farm Manager
                 </VBtn>
               </div>
