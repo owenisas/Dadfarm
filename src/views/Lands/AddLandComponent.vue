@@ -3,6 +3,10 @@
     v-model="localShow"
     @click:outside="close"
   >
+    <Local
+      :show="dialog"
+      @closedialog="onclose"
+    />
     <VCard
       class="mx-auto justify-center align-center"
       max-width="500"
@@ -14,9 +18,6 @@
         Select "Add your Own Land" if you already have a land or select "Lease a Land" from the Complete Farmer marketplace if you don't own a land.
       </VCardText>
       <div>
-        <Local
-          :show="dialog"
-        />
         <CustomRadio
           :model-value="selected === 'local'"
           label="Choose this option to add your own land for cultivation"
@@ -60,6 +61,9 @@ const props = defineProps(  {
     required:true,
   },
 })
+const onclose = ()=>{
+  dialog.value = false
+}
 const emit = defineEmits(['closedialog'])
 const dialog = ref(false)
 const router = useRouter()
@@ -90,8 +94,8 @@ watch(
 )
 </script>
 
-<style>
-.v-overlay__content {
+<style scoped>
+::v-deep .v-overlay__content {
   width: 500px !important;
 }
 </style>

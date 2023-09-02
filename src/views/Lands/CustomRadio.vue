@@ -43,7 +43,7 @@ const emit = defineEmits(['update:modelValue'])
 
 const style = ref({
   backgroundColor: props.bgcolor,
-  width: "100px",
+  width: "115px",
   height: "100px",
 })
 const isSelected = ref(props.modelValue)

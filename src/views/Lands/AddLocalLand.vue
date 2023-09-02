@@ -1,7 +1,8 @@
 <template>
   <VDialog
     v-model="dialog"
-    fullscreen=""
+    fullscreen
+    @click:outside="close"
   >
     <VDialog
       v-model="dialog2"
@@ -86,7 +87,7 @@
         />
         <VBtn
           class="d-flex justify-end mt-2 mr-2"
-          @click="dialog = false"
+          @click="close"
         >
           close
         </VBtn>
@@ -218,6 +219,8 @@ const props = defineProps(  {
     required:true,
   },
 })
+const emit = defineEmits(['closedialog'])
+
 const step = ref(1)
 const value = ref(40)
 const dialog2 = ref(true)
@@ -230,6 +233,10 @@ watch(
     dialog.value = newVal
   },
 )
+const close = () => {
+  dialog.value = false
+  emit('closedialog')
+}
 const increasestep = () => {
   step.value++
   value.value += 40
