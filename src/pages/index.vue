@@ -1,5 +1,6 @@
 <script setup>
 import AddLandComponent from '@/views/Lands/AddLandComponent.vue'
+import VideoCarousel from '@/views/video/VideoCarousel.vue'
 
 const currentTab = ref(null)
 const addland = ref(false)
@@ -187,6 +188,8 @@ const tabs = [
           </VCard>
         </VWindowItem>
       </VWindow>
+      <VDivider class="ma-3" />
+      <VideoCarousel />
     </VCol>
   </VRow>
 </template>

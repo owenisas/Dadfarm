@@ -14,7 +14,7 @@
       variant="text"
       class="text-link-button font-weight-bold text-capitalize"
     >
-      {{ title }}
+      <span>{{ title }}</span>
       <VTooltip
         activator="parent"
         location="bottom"

@@ -45,7 +45,7 @@ import fifteen from'@/assets/images/video/15.avif'
 import VideoPreview from '@/views/video/VideoPreview.vue'
 
 const videos = [{
-  title:"Sweet Potato Protocol: Dehaulming Sweet Potatoes",
+  title: "Sweet Potato Protocol: Dehaulming Sweet Potatoes",
   img:one,
 },
 {

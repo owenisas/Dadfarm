@@ -7,78 +7,88 @@
     <VDialog
       v-model="dialog2"
     >
-      <VCard
-        class="d-flex justify-center align-center font-weight-bold"
-        height="500"
-      >
-        <VCardTitle>
-          Add Personal Land
-        </VCardTitle>
-        <VTimeline
-          direction="horizontal"
-          line-color="primary"
-          truncate-line="both"
+      <div class="d-flex align-center justify-center">
+        <VCard
+          height="450"
+          width="900"
+          class="pa-3"
         >
-          <VTimelineItem>
-            <template #icon>
-              <span class="font-weight-bold">Step 1</span>
-            </template>
-          </VTimelineItem>
-
-          <VTimelineItem>
-            <template #icon>
-              <span class="font-weight-bold">Step 2</span>
-            </template>
-          </VTimelineItem>
-
-          <VTimelineItem>
-            <template #icon>
-              <span class="font-weight-bold">Step 3</span>
-            </template>
-          </VTimelineItem>
-        </VTimeline>
-        <VRow>
-          <VCol cols="12">
-            <VIcon icon="mdi-heart" />
-            <VCardTitle>
-              test
-            </VCardTitle>
-          </VCol>
-          <VCol cols="12">
-            <VIcon icon="mdi-heart" />
-            <VCardTitle>
-              test
-            </VCardTitle>
-          </VCol>
-          <VCol cols="12">
-            <VIcon icon="mdi-heart" />
-            <VCardTitle>
-              test
-            </VCardTitle>
-          </VCol>
-        </VRow>
-        <VCardActions>
-          <VBtn
-            color="primary"
-            height="50"
-            width="50"
-            @click="dialog2 = false"
+          <VCardTitle
+            class="d-flex justify-center"
           >
-            Continue
-          </VBtn>
-        </VCardActions>
-      </VCard>
+            Add Personal Land
+          </VCardTitle>
+          <VTimeline
+            direction="horizontal"
+            line-color="primary"
+            truncate-line="both"
+          >
+            <VTimelineItem>
+              <template #icon>
+                <span class="font-weight-bold">Step 1</span>
+              </template>
+            </VTimelineItem>
+
+            <VTimelineItem>
+              <template #icon>
+                <span class="font-weight-bold">Step 2</span>
+              </template>
+            </VTimelineItem>
+
+            <VTimelineItem>
+              <template #icon>
+                <span class="font-weight-bold">Step 3</span>
+              </template>
+            </VTimelineItem>
+          </VTimeline>
+          <VRow justify="space-around">
+            <template
+              v-for="(each,index) in steps"
+              :key="index"
+            >
+              <VCol class="mt-2">
+                <div class="d-flex justify-center">
+                  <VIcon
+                    color="primary"
+                    :icon="each.icon"
+                  />
+                </div>
+                <h4 class="mt-3 d-flex justify-center">
+                  {{ each.title }}
+                </h4>
+                <p class="mt-3">
+                  {{ each.details }}
+                </p>
+              </VCol>
+              <VDivider
+                v-if="index !== 3"
+                :key="'divider-' + index"
+                vertical=""
+                color="#DFF5E0"
+                thickness="2"
+              />
+            </template>
+          </VRow>
+          <div
+            class="d-flex justify-center"
+          >
+            <VBtn
+              class="mt-3"
+              color="primary"
+              height="40"
+              width="100"
+              @click="dialog2 = false"
+            >
+              Continue
+            </VBtn>
+          </div>
+        </VCard>
+      </div>
     </VDialog>
     <VCard
       class="mx-auto"
     >
-      <VProgressLinear
-        v-model="value"
-        max="120"
-        color="primary"
-        height="20"
-      />
-      <VCardTitle class="text-h6 font-weight-regular justify-space-between">
+      <VCardTitle class="d-flex justify-space-between text-h6 font-weight-regular">
         <span>{{ currentTitle }}</span>
         <VAvatar
           color="primary"
@@ -86,12 +96,18 @@
           v-text="step"
         />
         <VBtn
-          class="d-flex justify-end mt-2 mr-2"
+          variant="text"
           @click="close"
         >
-          close
+          X
         </VBtn>
       </VCardTitle>
+      <VProgressLinear
+        v-model="value"
+        max="120"
+        color="primary"
+        height="20"
+      />
 
       <VWindow v-model="step">
         <VWindowItem
@@ -226,7 +242,21 @@ const value = ref(40)
 const dialog2 = ref(true)
 const dialog = ref(false)
 const localShow = ref(props.show)
-
+const steps = [{
+  title:"Land Information",
+  icon:"mdi-file-document-outline",
+  details:"Provide the details of your land and ensure that every detail provided is accurate.",
+},
+{
+  title:"Upload Land Boundaries or Pay and Schedule Assessment\n",
+  icon:"mdi-calendar-outline",
+  details:"Either upload your land boundaries for the system to generate results automatically, or pay for a physical survey and soil sampling to be performed.",
+},
+{
+  title:"View your Results\n",
+  icon:"mdi-timer-sand-complete",
+  details:"Access your land assessment findings. Results are published after our team completes processing.",
+}]
 watch(
   () => props.show,
   newVal => {
@@ -247,7 +277,7 @@ const decreasestep = () => {
 }
 const currentTitle = computed(() => {
   switch (step.value) {
-  case 1: return 'Sign-up'
+  case 1: return 'Add your own land'
   case 2: return 'Create a password'
   default: return 'Account created'
   }

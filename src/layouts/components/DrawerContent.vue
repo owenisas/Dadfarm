@@ -1,6 +1,5 @@
 <script setup>
-
-import logo from '@/assets/logo.svg?raw'
+import logo from '@/assets/dadlogo.png'
 import {
   VerticalNavLink,
   VerticalNavSectionTitle,
@@ -21,14 +20,11 @@ const upgradeBanner = computed(() => {
       to="/"
       class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
     >
-      <!-- ℹ️ You can also use img tag or VImg here -->
-      <div v-html="logo" />
-
-      <Transition name="vertical-nav-app-title">
-        <h1 class="font-weight-semibold leading-normal text-xl text-uppercase">
-          Owenisas
-        </h1>
-      </Transition>
+      <VImg
+        :src="logo"
+        cover=""
+        style="height: 70px"
+      />
     </RouterLink>
   </div>
 
