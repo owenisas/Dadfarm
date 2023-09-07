@@ -62,7 +62,7 @@
 
 <script setup>
 import Lands from '@/views/Maretplace/Lands.vue'
-import FarmerDetails from '@/views/Maretplace/FarmerDetails.vue'
+import FarmerDetails from '@/global/FarmerDetails.vue'
 import FarmManagers from '@/views/Maretplace/FarmManagers.vue'
 import Inputs from '@/views/Maretplace/Inputs.vue'
 import Tools from '@/views/Maretplace/Tools.vue'
