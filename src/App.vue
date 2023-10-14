@@ -44,7 +44,6 @@ onMounted(
       console.error(error)
     }
   })
-
 watchEffect(() => {
   const watchedRouteNames = ['create_post', 'register', 'login']
 

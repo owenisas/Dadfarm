@@ -1,7 +1,12 @@
 <script setup>
 import AddLandComponent from '@/views/Lands/AddLandComponent.vue'
 import VideoCarousel from '@/views/video/VideoCarousel.vue'
+import LandPreview2 from '@/views/Lands/LandPreview2.vue'
+import { useStore } from 'vuex'
 
+const noland = ref(false)
+const store = useStore()
+const land = computed(() => store.state.land)
 const currentTab = ref(null)
 const addland = ref(false)
 const Addland = () => {
@@ -137,20 +142,25 @@ const tabs = [
         class="mt-5 disable-tab-transition"
         :touch="false"
       >
-        <!-- Account -->
         <VWindowItem :value="0">
           <VCard>
             <VCol>
-              <div class="d-flex justify-center align-center font-weight-bold">
-                You do not have farms. Add your first farm
+              <div v-if="noland">
+                <div class="d-flex justify-center align-center font-weight-bold">
+                  You do not have farms. Add your first farm
+                </div>
+                <div class="pt-3 d-flex justify-center align-center font-weight-bold">
+                  <VBtn
+                    @click="Addland"
+                  >
+                    + Add Farm
+                  </VBtn>
+                </div>
               </div>
-              <div class="pt-3 d-flex justify-center align-center font-weight-bold">
-                <VBtn
-                  @click="Addland"
-                >
-                  + Add Farm
-                </VBtn>
-              </div>
+              <LandPreview2
+                v-else
+                :land="land"
+              />
             </VCol>
           </VCard>
         </VWindowItem>

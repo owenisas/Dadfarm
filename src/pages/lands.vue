@@ -39,9 +39,16 @@
   >
     <VWindowItem :value="0">
       <VCol>
-        <div class="d-flex justify-center align-center font-weight-bold">
+        <div
+          v-if="noland"
+          class="d-flex justify-center align-center font-weight-bold"
+        >
           You do not have lands. Add your first Land
         </div>
+        <LandPreview2
+          v-else
+          :land="land"
+        />
       </VCol>
     </VWindowItem>
 
@@ -56,6 +63,12 @@
 </template>
 
 <script setup>
+import LandPreview2 from '@/views/Lands/LandPreview2.vue'
+import { useStore } from 'vuex'
+
+const noland = ref(false)
+const store = useStore()
+const land = computed(() => store.state.land)
 const tabs = [
   { title: 'All' },
   { title: 'Approved' },

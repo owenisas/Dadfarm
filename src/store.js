@@ -1,12 +1,27 @@
 // src/store.js
 import { createStore } from 'vuex'
 import jwtDecode from 'jwt-decode'
+import farm4 from '@/assets/images/farms/farm4.jpg'
 
 const store = createStore({
   state: {
     isLoggedIn: false,
     user: null,
     expired: false,
+    land:{
+      location: "Nan Shan, Shenzhen",
+      lease:"700 square feet for 2 years\n",
+      period:"Jan-28 2023 to Jan-28 2025\n",
+      manager:"Man Kit\n",
+      managerid:"2",
+      crops:{
+        "Butter Lettuce":"200 square feet",
+        "Romaine Lettuce":"500 square feet",
+      },
+      harvested:"RMB 25000",
+      insurance:"covers 90% damage",
+      img: farm4,
+    },
   },
   mutations: {
     setLoggedIn(state, isLoggedIn) {
@@ -17,36 +32,6 @@ const store = createStore({
     },
     setExpired(state, expired){
       state.expired = expired
-    },
-    loadInitialState(state) {
-      let decodedToken
-      if (localStorage.getItem('session_token')) {
-        const session_token = localStorage.getItem('session_token')
-        try {
-          decodedToken = jwtDecode(session_token)
-          state.isLoggedIn = true
-        } catch (e) {
-          console.error('Failed to decode token', e)
-        }
-      }
-      if (decodedToken) {
-        // Parse the data
-        const id = decodedToken.id
-        const username = decodedToken.username
-        state.user = username
-        const exp = new Date(decodedToken.exp * 1000)  // The exp is in seconds, convert it to milliseconds
-
-        if (exp < new Date()) {
-          localStorage.removeItem('session_token')
-          state.isLoggedIn = false
-          state.user = null
-          state.expired = true
-          console.log('Session token has expired and has been removed')
-        }
-        console.log('ID:', id)
-        console.log('Username:', username)
-        console.log('Expiration:', exp)
-      }
     },
   },
 })

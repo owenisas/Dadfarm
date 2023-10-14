@@ -1,0 +1,1 @@
+import{b6 as o,o as l,x as r,y as e,t as a,z as s}from"./index.d2fcbbd6.js";const _={__name:"i18n",setup(c){const{t,locale:u}=o(),n=navigator.language;return(p,g)=>(l(),r("div",null,[e("p",null,a(s(t)("message.greeting")),1),e("p",null,a(s(t)("message.goodbye")),1),e("p",null,a(s(n)),1)]))}};export{_ as default};

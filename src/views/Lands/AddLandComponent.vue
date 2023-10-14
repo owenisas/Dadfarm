@@ -61,10 +61,10 @@ const props = defineProps(  {
     required:true,
   },
 })
+const emit = defineEmits(['closedialog'])
 const onclose = ()=>{
   dialog.value = false
 }
-const emit = defineEmits(['closedialog'])
 const dialog = ref(false)
 const router = useRouter()
 const disabled = ref(true)

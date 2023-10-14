@@ -1,1 +1,0 @@
-import{a,a0 as s,a1 as o,o as r,ae as n,t as c}from"./index.90141216.js";const p={__name:"test3",setup(l){const e=a();return s(async()=>{try{const t=await o.get("http://127.0.0.1:5000/home");t.status===200?e.value=t.data.message:t.status}catch(t){console.error(t)}}),(t,u)=>(r(),n("div",null,c(e.value),1))}};export{p as default};

@@ -1,15 +1,20 @@
 <template>
+  <AddManager
+    :show="show"
+    @closedialog="onclose"
+  />
   <VRow>
     <VCol
       cols="6"
     >
-      <VCardTitle>Assigned Farm Manageres(0)</VCardTitle>
+      <VCardTitle>Assigned Farm Manageres(1)</VCardTitle>
     </VCol>
     <VCol
       cols="6"
       class="d-flex justify-end"
     >
       <VBtn
+        @click='show = !show'
         style="width: 150px;"
       >
         + Add Manager
@@ -38,11 +43,7 @@
     :touch="false"
   >
     <VWindowItem :value="0">
-      <VCol>
-        <div class="d-flex justify-center align-center font-weight-bold">
-          Farm Managers who have been assigned to a farm will show here.
-        </div>
-      </VCol>
+      <Assigned />
     </VWindowItem>
 
     <VWindowItem :value="1">
@@ -56,6 +57,13 @@
 </template>
 
 <script setup>
+import Assigned from '@/views/FarmManagers/Assigned.vue'
+import AddManager from '@/views/FarmManagers/AddManager.vue'
+
+const show = ref(false)
+const onclose = () =>{
+  show.value = false
+}
 const tabs = [
   { title: 'Assigned' },
   { title: 'Approved' },

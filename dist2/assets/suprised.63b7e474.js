@@ -1,0 +1,39 @@
+import{a as c,F as e,d as t,o as B,x as o,U as n,a5 as G,b as Q,z as s,G as M}from"./index.d2fcbbd6.js";const P=`<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1.875em" height="1.875em" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 485.5 485.02">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #73c4fc;
+      }
+
+      .cls-3 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-4" d="m406.5.52c43.08,0,78,34.92,78,78V.52h-78Z"/>
+    <g>
+      <path d="m485,79.02v164h-242V1.02h164c43.08,0,78,34.92,78,78Z"/>
+      <path class="cls-3" d="m407,1.02h-164v242h242V79.02c0-43.08-34.92-78-78-78Z"/>
+    </g>
+  </g>
+  <g>
+    <path class="cls-2" d="m255.64,253.43h228.86c-5.84,127.79-112.73,231.09-241.87,231.09S.5,375.23.5,242.43,104.9,5.33,233.63.52v241.91h22.01v11Z"/>
+    <path class="cls-3" d="m255.64,253.43v-11h-22.01V.52C104.9,5.33.5,112.63.5,242.43s109.3,242.09,242.13,242.09,236.03-103.3,241.87-231.09h-228.86Z"/>
+  </g>
+  <g>
+    <circle class="cls-1" cx="243" cy="242.02" r="150"/>
+    <path d="m243,92.52c39.93,0,77.48,15.55,105.71,43.79,28.24,28.24,43.79,65.78,43.79,105.71s-15.55,77.48-43.79,105.71-65.78,43.79-105.71,43.79-77.48-15.55-105.71-43.79-43.79-65.78-43.79-105.71,15.55-77.48,43.79-105.71c28.24-28.24,65.78-43.79,105.71-43.79m0-1c-83.12,0-150.5,67.38-150.5,150.5s67.38,150.5,150.5,150.5,150.5-67.38,150.5-150.5-67.38-150.5-150.5-150.5h0Z"/>
+  </g>
+</svg>
+`,f={__name:"AuthProvider",setup(C){const g=c(null),D=e(),a=[{icon:"mdi-facebook",color:"#4267b2",colorInDark:"#4267b2"},{icon:"mdi-twitter",color:"#1da1f2",colorInDark:"#1da1f2"},{icon:"mdi-github",color:"#272727",colorInDark:"#fff"},{icon:"mdi-google",color:"#db4437",colorInDark:"#db4437"}];return t({setup(){return{VFacebookLogin:g}}}),(l,w)=>(B(),o(n,null,[(B(),o(n,null,G(a,A=>Q(M,{key:A.icon,icon:A.icon,variant:"text",color:s(D).global.name.value==="dark"?A.colorInDark:A.color},null,8,["icon","color"])),64)),Q(s(g),{"app-id":"966242223397117"})],64))}},r="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACz4AAAFaBAMAAACX3HTLAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAPUExURUdwTC0pRC4qRSwoQywoQ4Cl7k8AAAAEdFJOUwB7PbhEZZIrAAAFUklEQVR42u3b0W2DMBSG0agboEwQVjAjeP+Z+tC+QAmChMIfc84IjvLp6trcbgCE6ftHd3cMABm++r7r7qXUX04E4OxRuStlqH84G4CkKuszwFlRLnUdBwZw+qiszwAHmd71vcIpAuw8Kr9VZX0G2HlUHurOHC3ASQsMfQbYeYEx1CM4boCTFhj6DJA+KuszQHyV9RlgGuVSs/hhAFXO5CcCruSAZ3H6DNBklfUZuEyUh/qh/ISAUVmfAf5J0rM4fQaMyp++wNBnoMVRudTm+a0BCwx9Bti4wHi0ctenz4BZWZ8BzMr6DLQ+KquyPgMZo3JvVNZnQJX1GeB5lAe11WfAqKzPACOexekzYIGhzwBLo7IFhj4DFhj6DDC/wJBLfQYsMNBnwKisz4Aqo8/A+ii769NnwKiMPgNjnsXpM6DK6DOwFGULDH0GjMroMzDmrk+fAQsM9BlYHJUtMPQZCOmyBYY+A3nTsjzpMxBUZRsM9Bky/Fz3KRH6DEZl9BmYHZVVGX0GCwz0GZiLsgUG+gwWGOgzMOWxMvoMeVU2KqPPYFRGnwFVRp/BXR/oMxiV0WcwKoM+gyqjz2CBAfoMRmXQZ4zKoM+gyqDPXDPKFhjoMxiVQZ9h9q5PldFnSKly5wUG+gxGZdBneFZlozLoM15ggD6DBQboM0Zl0GfYUGX/ONBngqKsyqDPWGCAPoO7PtBnVBn0GTZE2QID9BmjMugzuOsDfcYCA9Bn1o/KFhigz1hgAPqMuz7QZywwAH3GXR/oMxYYgD7zbpRVGfQZCwxAn3HXB/pMcpWNyqDPxI3Kqgz6jAUGoM+46wP02agM6DNGZUCfVRnQZ3zXB+izURnQZ9z1AfqsygD67Ls+QJ+NygD67K4P0GcsMAB99lgZQJ8tMAB9dtcHoM9GZUCfjcoA+qzKgD57Fgegz0ZlgPb77K4P0OesKltgAPrsuz4AfbbAAMjus7s+gGqBAaDPRmWA9D6rMkBQn33XB5DUZ1UGSOqzZ3EASX1WZYCgPnsWB5DUZ6MyQFCfPYsDSOqzBQZAUJ89iwNI6rMFBkBSn931AQT2WZUBMvvsCAD0GQB9BtBnAPQZQJ8B0GcA9BlAnwHQZwB9BkCfAfQZAH0GQJ8B9BkAfQbQZwD0GQB9BtBnAPQZQJ8B0GcAfQZAnwHQZwB9BkCfAfQZAH0GQJ8B9BkAfQbQZwD0GUCfAdBnAPQZQJ8B0GcAfQZAnwH02REA6DMA+gygzwDoM4A+A6DPAOgzgD4DoM8A+gyAPgPoMwD6DIA+A+gzAPoMoM8A6DMA+gygzwDoM4A+A6DPAPoMgD4DoM8A+gyAPgPoMwD6DIA+A+gzAPoMoM8A6DOAPgOgzwDoM4A+A6DPAPoMgD4D6LMjANBnAPQZQJ8B0GcAfQZAnwHQZwB9BkCfAfQZAH0G0GcA9BkAfQbQZwD0GUCfAdBnAPQZQJ8B0GcAfQZAnwH0GQB9BkCfAfQZAH0G0GcA9BkAfQbQZwD0GUCfAdBnAH0GQJ8B0GcAfQZAnwH0GQB9BtBnRwCgzwDoM4A+A6DPAPoMgD4DoM8A+gyAPgPoMwD6DKDPAOgzAPoMoM8A6DOAPgOgzwDoM4A+A6DPAPoMgD4D6DMA+gyAPgPoMwD6DKDPAOgzAPoMoM8A6DOAPgOgzwD6DIA+A6DPAPoMgD4D6DMA+gygz44AQJ8B0GcAfQZAnwH0GQB9BkCfAfQZAH0G0GcA9BlAnwHQZwD0GUCfAdBnAH0GQJ8B0GcAfQZAnwH0GQB9BtBnAPQZAH0G0GcA9BlAnwHQZwD0GUCfAdBngCZ8A2ywbuR66ljNAAAAAElFTkSuQmCC",d="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAACtBAMAAAC0KMWCAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAVUExURUdwTPHx9vDx9vDx9vHy9/Pz+e/w9XrTQnAAAAAGdFJOUwB7ptFPJqEDGaYAAAKASURBVHja7d3NacNAFIVRb1KAUoJUgkB7g0qIW1D/JcSEkEVwyJ/BulfnlKB8DO/NGHI6QYHLyzoM4zT7EuR6uqzr8HzNePvgoxB4GJ+HcZyX7Qafh5DD+H2muJmxoEmZKc7XmWKet5/yzciaKQRN6oK3CZq0w/jXM4WgSV3wBE3Vgido9rjgDX9d8ARN1YInaHaQ8fyAjAXNbu8pBE3VPYWg6R+NBU3qPYWgOeZhLGi+P4zffhUUl7Gg+TxTTCEzhaD5YqbY022boPnPTLFsrfyNLXiCJuEwLp0pBH2s07hpwRP04S8qtsPTQvxFxbTIWND5FxXaFXT+RYXDWNAFjx8yFrQFT9CYKQSNBU/QRz+MzRSCzj+MLXiCNlMg6P284MlY0AWHsZlC0OELnsNY0F7wEPROXvBkLOj8FzwzhaAteAjaCx6CvseCJ2NBmykQtAUPQd/jV0EyFnTBgmemELQFD0E//AXPgkdy0BY8CoJ220ZB0BY88oO24FEQtJmC/KAteBQE7QWP/KC94FEQtJmCgqC94JEftMOYgqAL/kc0grbgkR+0FzwKgvaCR37QFjwKgvaCR0HQFjw6gjZTUBW0T4CgQdAgaBA0ggZBg6BB0CBoBA2CBkGDoEHQCBoEDYIGQYOgETQIGgQNggZBI2gQNAgaBA2CRtAgaBA0CBoEjaBB0CBoEDSCBkGDoEHQIGgEDYIGQYOgQdAIGgQNggZBg6ARNAgaBA2CBkEjaBA0CBoEDYJG0CBoEDQIGgSNoEHQIGgQNAgaQYOgQdAgaAQNggZBg6BB0AgaBA2CBkGDoBE0CBoEDYIGQSNoEDQIGgQNgkbQIGgQNAgaBE2rV8fAx8SI153KAAAAAElFTkSuQmCC",i="/assets/gift.29f4ed11.png",z="/assets/suprised.58f62d4e.png";export{f as _,d as a,r as b,i as g,P as l,z as s};
